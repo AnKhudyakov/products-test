@@ -63,5 +63,12 @@ module.exports = {
         fonts: ["Roboto"],
       },
     },
+    {
+      resolve: "gatsby-image-graphql-schema",
+      options: {
+        imageNames: ["image"],
+        schemaTypeName: "Products_Product",
+      },
+    },
   ],
 }

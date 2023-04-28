@@ -1,21 +1,19 @@
 import * as React from "react"
 import { Link } from "gatsby-link"
+import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
 
 import * as styles from "./ProductCard.module.scss"
-import bestseller from "@/images/bestseller.png"
-import favor from "@/images/favor.svg"
-import favorFill from "@/images/favorfill.svg"
+
 import Counter from "../ui-kit/counter/counter"
 import Button from "../ui-kit/Button/button"
 import Rating from "../ui-kit/rating/rating"
 import { useState } from "react"
-import { useEffect } from "react"
 
 const ProductCard = ({ product }) => {
   const [countItem, setCountItem] = useState(0)
   const [favorIn, setfavorIn] = useState(false)
-  const [cart, setCart] = useState([])
-  const { id, title, price, description, category, image, rating } = product
+  const { title, price, description, category, rating } = product
+  const image = getImage(product.imageSharp)
 
   return (
     <article className={styles.container}>
@@ -23,17 +21,23 @@ const ProductCard = ({ product }) => {
       <div className={styles.wrapper}>
         {rating.count > 300 && rating.rate > 4 && (
           <div className={styles.bestseller}>
-            <img src={bestseller} alt="bestseller" width={80} height={80} />
+            <StaticImage
+              src="../../images/bestseller.png"
+              alt="bestseller"
+              width={80}
+              height={80}
+              placeholder="blurred"
+            />
           </div>
         )}
-        <img
-          src={image}
-          alt="Image product"
-          className={styles.img}
-          width={220}
-          height={220}
-        />
-        <div className={styles.product_desc}>
+        <div>
+          <div className={styles.image_wrapper}>
+            <GatsbyImage
+              image={image}
+              alt="Image product"
+              className={styles.img}
+            />
+          </div>
           <div className={styles.text}>
             <div className={styles.params}>
               <h5 className={styles.category}>{category}</h5>
@@ -42,6 +46,8 @@ const ProductCard = ({ product }) => {
             <h3>{title}</h3>
             <p className={styles.desc}>{description.slice(0, 120)}...</p>
           </div>
+        </div>
+        <div className={styles.product_desc}>
           <div className={styles.footer_card}>
             <div className={styles.price}>
               <h2>${price.toFixed(0)}</h2>
@@ -59,21 +65,32 @@ const ProductCard = ({ product }) => {
               ) : (
                 <Counter countItem={countItem} setCountItem={setCountItem} />
               )}
-
-              <div
+              <button
                 className={
                   favorIn ? styles.favor_wrapper_fill : styles.favor_wrapper
                 }
                 onClick={() => setfavorIn(!favorIn)}
               >
-                <img
-                  src={favorIn ? favorFill : favor}
-                  className={styles.favor}
-                  alt="favor"
-                  width={24}
-                  height={24}
-                />
-              </div>
+                {favorIn ? (
+                  <StaticImage
+                    src="../../images/favorfill.svg"
+                    className={styles.favor}
+                    alt="favor"
+                    width={24}
+                    height={24}
+                    placeholder="blurred"
+                  />
+                ) : (
+                  <StaticImage
+                    src="../../images/favor.svg"
+                    className={styles.favor}
+                    alt="favor"
+                    width={24}
+                    height={24}
+                    placeholder="blurred"
+                  />
+                )}
+              </button>
             </div>
           </div>
         </div>

@@ -6,6 +6,7 @@
   "author": "Andrey Khudyakov",
   "dependencies": {
     "gatsby": "^5.9.0",
+    "gatsby-image-graphql-schema": "^1.1.1",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-image": "^3.9.0",

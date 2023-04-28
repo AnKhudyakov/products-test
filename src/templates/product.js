@@ -1,16 +1,19 @@
 import * as React from "react"
 import { graphql } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout/layout"
 import Seo from "../components/seo"
 
 const Product = ({ data }) => {
-  console.log(data)
   const { Product } = data.products
+  const image = getImage(Product.imageSharp)
   return (
     <Layout>
       <Seo title={`Product | ${Product.title}`} />
-      <div></div>
+      <div>
+        
+      </div>
     </Layout>
   )
 }
@@ -26,7 +29,12 @@ export const query = graphql`
         description
         category
         image
-        rating 
+        rating
+        imageSharp {
+          childImageSharp {
+            gatsbyImageData( width: 220, formats: AUTO, placeholder: DOMINANT_COLOR)
+          }
+        }
       }
     }
   }

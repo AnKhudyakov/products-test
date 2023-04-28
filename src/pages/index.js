@@ -10,7 +10,7 @@ const IndexPage = ({ data }) => {
   const { allProducts } = data.products
   return (
     <Layout>
-      <ProductList products={allProducts}/>
+      <ProductList products={allProducts} />
     </Layout>
   )
 }
@@ -28,8 +28,13 @@ export const query = graphql`
         price
         description
         category
-        image
+        image 
         rating 
+        imageSharp {
+          childImageSharp {
+            gatsbyImageData( width: 220, formats: AUTO, placeholder: DOMINANT_COLOR)
+          }
+        }
       }
     }
   }

@@ -29,7 +29,6 @@ const Rating = (props ) => {
         <img
           src={starfill}
           alt="Star"
-          className={styles.star}
           width={14}
           height={14}
           key={index}
@@ -39,7 +38,6 @@ const Rating = (props ) => {
         <img
           src={starEmpty}
           alt="Star"
-          className={styles.star}
           width={14}
           height={14}
           key={index}
