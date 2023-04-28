@@ -5,7 +5,7 @@ import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
 import * as styles from "./ProductCard.module.scss"
 
 import Counter from "../ui-kit/counter/counter"
-import Button from "../ui-kit/Button/button"
+import Button from "../ui-kit/button/button"
 import Rating from "../ui-kit/rating/rating"
 import { useState } from "react"
 

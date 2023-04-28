@@ -50,13 +50,13 @@ module.exports = {
       },
     },
     `gatsby-plugin-sass`,
-    {
-      resolve: `gatsby-plugin-alias-imports`,
-      options: {
-        alias: { "@": path.resolve(__dirname, "src") },
-        extensions: [],
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-alias-imports`,
+    //   options: {
+    //     alias: { "@": path.resolve(__dirname, "src") },
+    //     extensions: [],
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {

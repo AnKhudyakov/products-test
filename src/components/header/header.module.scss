@@ -1,12 +1,40 @@
 .container {
-  margin: 0 auto;
-  padding: 15px 15%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  position: fixed;
+  top:0;
+  width: 100%;
+  background-color: rgba(22, 22, 23, .5);
+  animation: showTop 1s;
+  z-index: 1000;
 }
 
+.header_wrapper {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1440px;
+  height: 60px;
+  @media screen and (max-width: 700px) {
+    height: 40px;
+  }
+}
+
+
 .link {
+  margin-left: 40px;
+  color: rgba(255, 255, 255, .8);
   font-size: 16px;
   text-decoration: none;
+  &:hover{
+    color: rgba(255, 255, 255, 1);
+  }
+}
+
+@keyframes showTop {
+  from {
+    top: -100%;
+  }
+
+  to {
+    top: 0;
+  }
 }

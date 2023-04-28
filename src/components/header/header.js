@@ -5,9 +5,11 @@ import * as styles from "./header.module.scss"
 
 const Header = ({ siteTitle }) => (
   <header className={styles.container}>
-    <Link to="/" className={styles.link}>
-      {siteTitle}
-    </Link>
+    <div className={styles.header_wrapper}>
+      <Link to="/" className={styles.link}>
+        {siteTitle}
+      </Link>
+    </div>
   </header>
 )
 

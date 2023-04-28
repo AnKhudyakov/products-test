@@ -32,7 +32,7 @@ export const query = graphql`
         rating 
         imageSharp {
           childImageSharp {
-            gatsbyImageData( width: 220, formats: AUTO, placeholder: DOMINANT_COLOR)
+            gatsbyImageData( width: 220, formats: AUTO, placeholder: BLURRED)
           }
         }
       }
