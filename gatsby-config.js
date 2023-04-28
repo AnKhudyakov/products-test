@@ -7,6 +7,9 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+
+const path = require("path")
+
 module.exports = {
   siteMetadata: {
     title: `Products`,
@@ -47,5 +50,18 @@ module.exports = {
       },
     },
     `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: { "@": path.resolve(__dirname, "src") },
+        extensions: [],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: ["Roboto"],
+      },
+    },
   ],
 }

@@ -1,0 +1,106 @@
+/* set box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* reset padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* reset margin */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.section {
+  overflow: hidden;
+}
+
+html {
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  scroll-behavior: smooth;
+}
+/* set basic config for body */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-size: 0;
+}
+
+/* for test purpose only */
+.br {
+  border: 1px solid red;
+}
+
+// Headers
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto", sans-serif;
+  color: #2e2e33;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+h5 {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+h6 {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+p {
+  font-size: 14px;
+  font-weight: 300;
+}

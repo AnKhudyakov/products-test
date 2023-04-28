@@ -1,16 +1,16 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 
-import Layout from "../components/layout"
+import Layout from "../components/layout/layout"
 import Seo from "../components/seo"
 import * as styles from "../components/index.module.scss"
+import ProductList from "../components/productList/productList"
 
 const IndexPage = ({ data }) => {
   const { allProducts } = data.products
-  console.log(allProducts)
   return (
     <Layout>
-      <section className={styles.container}></section>
+      <ProductList products={allProducts}/>
     </Layout>
   )
 }

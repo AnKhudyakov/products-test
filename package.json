@@ -6,6 +6,8 @@
   "author": "Andrey Khudyakov",
   "dependencies": {
     "gatsby": "^5.9.0",
+    "gatsby-plugin-alias-imports": "^1.0.5",
+    "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-image": "^3.9.0",
     "gatsby-plugin-manifest": "^5.9.0",
     "gatsby-plugin-sass": "^6.9.0",
@@ -14,6 +16,7 @@
     "gatsby-source-graphql": "^5.9.0",
     "gatsby-transformer-sharp": "^5.9.0",
     "json-graphql-server": "^2.3.2",
+    "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sass": "^1.62.1"

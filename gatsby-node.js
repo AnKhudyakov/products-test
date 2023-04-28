@@ -20,8 +20,8 @@ exports.createPages = async ({ graphql, actions }) => {
   data.products.allProducts.forEach(product => {
     const { createPage } = actions
     createPage({
-      path: "/product/${product.id}",
-      component: require.resolve("./src/templates/productCard.js"),
+      path: `/product/${product.id}`,
+      component: require.resolve("./src/templates/product.js"),
       context: { id: product.id },
       defer: true,
     })
