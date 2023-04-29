@@ -1,0 +1,56 @@
+$content-width: 1800px;
+
+// templates
+
+%tpminus {
+  position: absolute;
+  background: #ffffff;
+  width: 15px;
+  height: 1px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+%tpbtn {
+  position: relative;
+  height: 40px;
+  border-radius: 90px;
+  color: #ffffff;
+  line-height: 20px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  background-color: #0071dc;
+  box-shadow: 0 1px 2px 1px #00000026;
+}
+
+//! Animation
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes showTop {
+  from {
+    top: -100%;
+  }
+
+  to {
+    top: 0;
+  }
+}

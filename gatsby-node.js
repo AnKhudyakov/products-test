@@ -23,7 +23,6 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/product/${product.id}`,
       component: require.resolve("./src/templates/product.js"),
       context: { id: product.id },
-      defer: true,
     })
   })
 }

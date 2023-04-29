@@ -1,56 +1,35 @@
-%tpbtn {
-  height: 40px;
-  border-radius: 90px;
-  color: #ffffff;
-  line-height: 20px;
-  font-weight: 500;
-  font-size: 16px;
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  position: absolute;
-  left: 0;
-  top: 0;
-  border: none;
-  z-index: 3;
-  background-color: #0071dc;
-  transition: all .5s cubic-bezier(.77,0,.175,1);
-  box-shadow: 0 1px 2px 1px #00000026;
-  @media screen and (hover: hover) {
-    &:hover {
-      background-color: #004f9a;;
-      cursor: pointer;
-    }
-  }
-}
-
-%tpminus {
-  position: absolute;
-  background: #ffffff;
-  width: 15px;
-  height: 1px;
-  margin-top: 9px;
-  &:hover {
-    cursor: pointer;
-  }
-}
+@import "../../../styles/variables.scss";
 
 .btn {
   @extend %tpbtn;
+  font-size: 16px;
+  border: none;
+  z-index: 3;
+  transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
   width: 100px;
-   display: flex;
-   padding: 10px 15px;
-   justify-content: center;
-   column-gap: 10px;
-   .wrapper {
+  display: flex;
+  padding: 10px 15px;
+  justify-content: center;
+  column-gap: 10px;
+  @media screen and (hover: hover) {
+    &:hover {
+      background-color: #004f9a;
+      cursor: pointer;
+    }
+  }
+
+  .wrapper {
     position: relative;
     width: 15px;
     height: 15px;
+
     .plus {
       @extend %tpminus;
+      top: 9px;
       &::before {
         content: "";
         @extend %tpminus;
-        top: -9px;
+        top: 0;
         left: 0;
         transform: rotate(90deg);
       }

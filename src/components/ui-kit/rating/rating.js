@@ -1,16 +1,15 @@
 import * as React from "react"
+import { StaticImage } from "gatsby-plugin-image"
 
 import * as styles from "./rating.module.scss"
-import starEmpty from "../../../images/star.svg"
-import starfill from "../../../images/starfill.svg"
 
-const Rating = ( props ) => {
-  const rate = Math.round(props.rate)
+const Rating = ({ rate, count }) => {
+  let roundRate = Math.round(rate)
 
   const stFill = []
   const stEmpty = [0, 1, 2, 3, 4]
 
-  for (let i = 0; i < rate; i++) {
+  for (let i = 0; i < roundRate; i++) {
     stFill.push(i)
     stEmpty.pop()
   }
@@ -18,12 +17,26 @@ const Rating = ( props ) => {
   return (
     <div className={styles.rating}>
       {stFill.map((star, index) => (
-        <img src={starfill} alt="Star" width={14} height={14} key={index} />
+        <StaticImage
+          src="../../../images/starfill.svg"
+          alt="Star"
+          width={14}
+          height={14}
+          key={index}
+          placeholder="blurred"
+        />
       ))}
       {stEmpty.map((star, index) => (
-        <img src={starEmpty} alt="Star" width={14} height={14} key={index} />
+        <StaticImage
+          src="../../../images/star.svg"
+          alt="Star"
+          width={14}
+          height={14}
+          key={index}
+          placeholder="blurred"
+        />
       ))}
-      <h5 className={styles.rate}>{props.count}</h5>
+      <h5 className={styles.rate}>{count}</h5>
     </div>
   )
 }

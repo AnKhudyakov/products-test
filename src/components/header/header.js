@@ -14,7 +14,12 @@ const Header = ({ siteTitle }) => {
   return (
     <header className={styles.container}>
       <div className={styles.header_wrapper}>
-        <Link to="/" className={styles.link} onKeyPress={handleKeyPress}>
+        <Link
+          to="/"
+          className={styles.link}
+          onKeyPress={handleKeyPress}
+          aria-label="menu"
+        >
           {siteTitle}
         </Link>
       </div>

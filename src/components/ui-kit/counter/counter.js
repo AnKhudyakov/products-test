@@ -3,7 +3,6 @@ import * as React from "react"
 import * as styles from "./counter.module.scss"
 
 const Counter = ({ countItem, setCountItem }) => {
-
   return (
     <div className={styles.btn}>
       <button

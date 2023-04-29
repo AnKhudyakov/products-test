@@ -1,13 +1,14 @@
 import * as React from "react"
 import { Link } from "gatsby-link"
 import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
+import { useState } from "react"
 
 import * as styles from "./ProductCard.module.scss"
-
 import Counter from "../ui-kit/counter/counter"
 import Button from "../ui-kit/button/button"
 import Rating from "../ui-kit/rating/rating"
-import { useState } from "react"
+import FavorButton from "../ui-kit/favorButton/favorButton"
+import Bestseller from "../ui-kit/bestseller/bestseller"
 
 const ProductCard = ({ product }) => {
   const [countItem, setCountItem] = useState(0)
@@ -15,7 +16,7 @@ const ProductCard = ({ product }) => {
   const { title, price, description, category, rating } = product
   const image = getImage(product.imageSharp)
 
-  const handleIncreaseCount = (e) => {
+  const handleIncreaseCount = e => {
     if (e.keyCode === 13) {
       setCountItem(countItem + 1)
     }
@@ -25,23 +26,13 @@ const ProductCard = ({ product }) => {
     <article className={styles.container}>
       <Link to={`/product/${product.id}`} className={styles.link} />
       <div className={styles.wrapper}>
-        {rating.count > 300 && rating.rate > 4 && (
-          <div className={styles.bestseller}>
-            <StaticImage
-              src="../../images/bestseller.png"
-              alt="bestseller"
-              width={80}
-              height={80}
-              placeholder="blurred"
-            />
-          </div>
-        )}
-        <div>
+        <Bestseller rating={rating}/>
+        <div className={styles.content_card}>
           <div className={styles.image_wrapper}>
             <GatsbyImage
               image={image}
               alt="Image product"
-              className={styles.img}
+              objectFit="contain"
             />
           </div>
           <div className={styles.text}>
@@ -53,52 +44,24 @@ const ProductCard = ({ product }) => {
             <p className={styles.desc}>{description.slice(0, 120)}...</p>
           </div>
         </div>
-        <div className={styles.product_desc}>
-          <div className={styles.footer_card}>
-            <div className={styles.price}>
-              <h2>${price.toFixed(0)}</h2>
-            </div>
-            <div className={styles.btns}>
-              {!countItem ? (
-                <div>
-                  <Button
-                    count={countItem}
-                    onClick={() => setCountItem(countItem + 1)}
-                    onKeyDown={handleIncreaseCount}
-                  >
-                    Add
-                  </Button>
-                </div>
-              ) : (
-                <Counter countItem={countItem} setCountItem={setCountItem} />
-              )}
-              <button
-                className={
-                  favorIn ? styles.favor_wrapper_fill : styles.favor_wrapper
-                }
-                onClick={() => setfavorIn(!favorIn)}
+        <div className={styles.footer_card}>
+          <h2>${price.toFixed(0)}</h2>
+          <div className={styles.btns}>
+            {!countItem ? (
+              <Button
+                count={countItem}
+                onClick={() => setCountItem(countItem + 1)}
+                onKeyDown={handleIncreaseCount}
               >
-                {favorIn ? (
-                  <StaticImage
-                    src="../../images/favorfill.svg"
-                    className={styles.favor}
-                    alt="favor"
-                    width={24}
-                    height={24}
-                    placeholder="blurred"
-                  />
-                ) : (
-                  <StaticImage
-                    src="../../images/favor.svg"
-                    className={styles.favor}
-                    alt="favor"
-                    width={24}
-                    height={24}
-                    placeholder="blurred"
-                  />
-                )}
-              </button>
-            </div>
+                Add
+              </Button>
+            ) : (
+              <Counter countItem={countItem} setCountItem={setCountItem} />
+            )}
+            <FavorButton
+              onClick={() => setfavorIn(!favorIn)}
+              favorIn={favorIn}
+            ></FavorButton>
           </div>
         </div>
       </div>

@@ -1,0 +1,36 @@
+@import "../../../styles/variables.scss";
+
+%tpfavor_wrapper {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: box-shadow 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+  z-index: 5;
+}
+
+.favor_wrapper {
+  @extend %tpfavor_wrapper;
+  border: 1px solid #71717a;
+  &:hover {
+    box-shadow: 0 1px 2px 1px #71717a;
+    cursor: pointer;
+  }
+}
+
+.favor_wrapper_fill {
+  @extend %tpfavor_wrapper;
+  border: 1px solid #f26a62;
+  &:hover {
+    box-shadow: 0 1px 2px 1px #f26a62;
+    cursor: pointer;
+  }
+}
+
+.favor {
+  margin: 8px auto;
+  display: block;
+  position: relative;
+  z-index: 5;
+}

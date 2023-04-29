@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 import { GatsbyImage, StaticImage, getImage } from "gatsby-plugin-image"
+import { useState } from "react"
 
 import * as styles from "./product.module.scss"
 import Layout from "../components/layout/layout"
@@ -8,8 +9,8 @@ import Seo from "../components/seo"
 import Counter from "../components/ui-kit/counter/counter"
 import Button from "../components/ui-kit/button/button"
 import Rating from "../components/ui-kit/rating/rating"
-import { useState } from "react"
-//import Counter from "../components/ui-kit/counter/counter"
+import FavorButton from "../components/ui-kit/favorButton/favorButton"
+import Bestseller from "../components/ui-kit/bestseller/bestseller"
 
 const Product = ({ data }) => {
   const [countItem, setCountItem] = useState(0)
@@ -22,74 +23,32 @@ const Product = ({ data }) => {
       <Seo title={`Product | ${Product.title}`} />
       <section className={styles.container}>
         <div className={styles.image_wrapper}>
-          <GatsbyImage
-            image={image}
-            alt="Image product"
-            className={styles.img}
-          />
+          <GatsbyImage image={image} alt="Image product" objectFit="contain" />
         </div>
         <article className={styles.text}>
-          {rating.count > 300 && rating.rate > 4 && (
-            <div className={styles.bestseller}>
-              <StaticImage
-                src="../images/bestseller.png"
-                alt="bestseller"
-                width={80}
-                height={80}
-                placeholder="blurred"
-              />
-            </div>
-          )}
+          <Bestseller rating={rating} />
+          <h2 className={styles.title}>{title}</h2>
           <div className={styles.params}>
             <h4 className={styles.category}>{category}</h4>
             <Rating count={rating.count} rate={rating.rate} />
           </div>
-          <h2>{title}</h2>
-          <div className={styles.product_content}>
-            <div className={styles.footer_card}>
-              <div className={styles.price}>
-                <h2>${price.toFixed(0)}</h2>
-              </div>
-              <div className={styles.btns}>
-                {!countItem ? (
-                  <div>
-                    <Button
-                      count={countItem}
-                      onClick={() => setCountItem(countItem + 1)}
-                    >
-                      Add
-                    </Button>
-                  </div>
-                ) : (
-                  <Counter countItem={countItem} setCountItem={setCountItem} />
-                )}
-                <button
-                  className={
-                    favorIn ? styles.favor_wrapper_fill : styles.favor_wrapper
-                  }
-                  onClick={() => setfavorIn(!favorIn)}
+          <div className={styles.footer_card}>
+            <h2>${price.toFixed(0)}</h2>
+            <div className={styles.btns}>
+              {!countItem ? (
+                <Button
+                  count={countItem}
+                  onClick={() => setCountItem(countItem + 1)}
                 >
-                  {favorIn ? (
-                    <StaticImage
-                      src="../images/favorfill.svg"
-                      className={styles.favor}
-                      alt="favor"
-                      width={24}
-                      height={24}
-                      placeholder="blurred"
-                    />
-                  ) : (
-                    <StaticImage
-                      src="../images/favor.svg"
-                      className={styles.favor}
-                      alt="favor"
-                      width={24}
-                      height={24}
-                      placeholder="blurred"
-                    />
-                  )}
-                </button>
-              </div>
+                  Add
+                </Button>
+              ) : (
+                <Counter countItem={countItem} setCountItem={setCountItem} />
+              )}
+              <FavorButton
+                onClick={() => setfavorIn(!favorIn)}
+                favorIn={favorIn}
+              ></FavorButton>
             </div>
           </div>
           <hr className={styles.devider} />
@@ -100,6 +59,7 @@ const Product = ({ data }) => {
               width={40}
               height={40}
               placeholder="blurred"
+              objectFit="contain"
             />
             <p>Shipping, arrives by tomorrow to Singapore, 370012</p>
           </div>
@@ -110,14 +70,13 @@ const Product = ({ data }) => {
               width={40}
               height={40}
               placeholder="blurred"
+              objectFit="contain"
             />
             <p>Pickup not available at Singapore Supercenter</p>
           </div>
-          <div>
-              <Link to="/" className={styles.link}>
-                Check availability nearby
-              </Link>
-            </div>
+          <Link to="/" className={styles.link}>
+            Check availability nearby
+          </Link>
         </article>
         <article className={styles.product_desc}>
           <h2>About this item</h2>
@@ -133,7 +92,7 @@ const Product = ({ data }) => {
 export default Product
 
 export const query = graphql`
-  query ProductQuery($id: ID!) {
+  query ProductPage($id: ID!) {
     products {
       Product(id: $id) {
         title

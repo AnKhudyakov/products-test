@@ -27,11 +27,11 @@ export const query = graphql`
         price
         description
         category
-        image 
-        rating 
+        image
+        rating
         imageSharp {
           childImageSharp {
-            gatsbyImageData( width: 220, formats: AUTO, placeholder: NONE)
+            gatsbyImageData(width: 220, formats: AUTO, placeholder: NONE)
           }
         }
       }
