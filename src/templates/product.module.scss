@@ -13,9 +13,8 @@
 }
 
 .image_wrapper {
+  margin: auto 0;
   text-align: center;
-  margin-bottom: 12px;
-  padding: 6%;
   div {
     height: 300px;
   }
@@ -24,6 +23,9 @@
       display: block;
       object-fit: contain !important;
     }
+  }
+  @media screen and (max-width: 700px) {
+    padding-bottom: 30px;
   }
 }
 
@@ -129,6 +131,17 @@
   display: flex;
   align-items: center;
   column-gap: 20px;
+}
+
+.link {
+  width: 100%;
+    margin-left: 60px;
+    font-size: 14px;
+    text-decoration: underline;
+    color: #2e2e33;
+    &:hover{
+      color: #0071dc;
+    }
 }
 
 .product_desc {

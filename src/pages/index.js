@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout/layout"
 import Seo from "../components/seo"
-import * as styles from "../components/index.module.scss"
 import ProductList from "../components/productList/productList"
 
 const IndexPage = ({ data }) => {
@@ -32,7 +31,7 @@ export const query = graphql`
         rating 
         imageSharp {
           childImageSharp {
-            gatsbyImageData( width: 220, formats: AUTO, placeholder: BLURRED)
+            gatsbyImageData( width: 220, formats: AUTO, placeholder: NONE)
           }
         }
       }

@@ -14,8 +14,8 @@
   background: #ffffff;
   width: 15px;
   height: 1px;
-  left: 7px;
-  top: 14px;
+  left: 7.5px;
+  top: 14.5px;
   z-index: 3;
   &:hover {
     cursor: pointer;
@@ -28,6 +28,8 @@
   top: 5px;
   height: 30px;
   border-radius: 50%;
+  background-color: transparent;
+  border: none;
   transition: all .5s cubic-bezier(.77,0,.175,1);
   @media screen and (hover: hover) {
     &:hover {

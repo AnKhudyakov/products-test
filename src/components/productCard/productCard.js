@@ -15,6 +15,12 @@ const ProductCard = ({ product }) => {
   const { title, price, description, category, rating } = product
   const image = getImage(product.imageSharp)
 
+  const handleIncreaseCount = (e) => {
+    if (e.keyCode === 13) {
+      setCountItem(countItem + 1)
+    }
+  }
+
   return (
     <article className={styles.container}>
       <Link to={`/product/${product.id}`} className={styles.link} />
@@ -58,6 +64,7 @@ const ProductCard = ({ product }) => {
                   <Button
                     count={countItem}
                     onClick={() => setCountItem(countItem + 1)}
+                    onKeyDown={handleIncreaseCount}
                   >
                     Add
                   </Button>

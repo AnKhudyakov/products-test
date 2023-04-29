@@ -112,17 +112,19 @@ const Product = ({ data }) => {
               placeholder="blurred"
             />
             <p>Pickup not available at Singapore Supercenter</p>
-            <Link to="/" className={styles.link}>
-              Check availability nearby
-            </Link>
           </div>
+          <div>
+              <Link to="/" className={styles.link}>
+                Check availability nearby
+              </Link>
+            </div>
         </article>
         <article className={styles.product_desc}>
           <h2>About this item</h2>
           <hr className={styles.devider} />
           <h3>Product details</h3>
           <p className={styles.desc}>{description}.</p>
-          </article>
+        </article>
       </section>
     </Layout>
   )
@@ -138,14 +140,14 @@ export const query = graphql`
         price
         description
         category
-        image
         rating
+        image
         imageSharp {
           childImageSharp {
             gatsbyImageData(
               width: 300
-              formats: AUTO
-              placeholder: DOMINANT_COLOR
+              formats: [AUTO, WEBP, AVIF]
+              placeholder: NONE
             )
           }
         }
