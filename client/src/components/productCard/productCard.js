@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby-link"
-import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { useState } from "react"
 
 import * as styles from "./ProductCard.module.scss"

@@ -46,7 +46,7 @@ module.exports = {
       options: {
         typeName: "Products",
         fieldName: "products",
-        url: "http://localhost:3004",
+        url: "http://localhost:3004/graphql",
       },
     },
     `gatsby-plugin-sass`,
@@ -68,7 +68,7 @@ module.exports = {
       resolve: "gatsby-image-graphql-schema",
       options: {
         imageNames: ["image"],
-        schemaTypeName: "Products_Product",
+        schemaTypeName: "Products",
       },
     },
   ],

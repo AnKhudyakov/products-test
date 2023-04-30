@@ -99,7 +99,10 @@ export const query = graphql`
         price
         description
         category
-        rating
+        rating {
+          rate
+          count
+        }
         image
         imageSharp {
           childImageSharp {
