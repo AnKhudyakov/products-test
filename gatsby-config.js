@@ -9,6 +9,10 @@
  */
 const path = require("path")
 
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Products`,
@@ -45,7 +49,7 @@ module.exports = {
       options: {
         typeName: "Products",
         fieldName: "products",
-        url: "https://graphql-server-git-main-ankhudyakov.vercel.app/graphql",
+        url: `${process.env.GATSBY_API_URL}`,
       },
     },
     `gatsby-plugin-sass`,
@@ -61,6 +65,13 @@ module.exports = {
       options: {
         fonts: ["Roboto:300,400,700"],
         display: "swap",
+      },
+    },
+    {
+      resolve: "gatsby-image-graphql-schema",
+      options: {
+        imageNames: ["image"],
+        schemaTypeName: "Products",
       },
     },
   ],
