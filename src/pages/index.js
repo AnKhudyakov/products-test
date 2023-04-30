@@ -28,7 +28,10 @@ export const query = graphql`
         description
         category
         image
-        rating
+        rating {
+          rate
+          count
+        }
         imageSharp {
           childImageSharp {
             gatsbyImageData(width: 220, formats: AUTO, placeholder: NONE)

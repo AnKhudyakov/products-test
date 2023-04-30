@@ -7,7 +7,6 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
-
 const path = require("path")
 
 module.exports = {
@@ -46,7 +45,7 @@ module.exports = {
       options: {
         typeName: "Products",
         fieldName: "products",
-        url: "http://localhost:3004",
+        url: "https://graphql-server-git-main-ankhudyakov.vercel.app/graphql",
       },
     },
     `gatsby-plugin-sass`,
@@ -62,13 +61,6 @@ module.exports = {
       options: {
         fonts: ["Roboto:300,400,700"],
         display: "swap",
-      },
-    },
-    {
-      resolve: "gatsby-image-graphql-schema",
-      options: {
-        imageNames: ["image"],
-        schemaTypeName: "Products_Product",
       },
     },
   ],
